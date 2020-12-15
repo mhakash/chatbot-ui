@@ -4,7 +4,7 @@ function sleep(ms) {
 }
 
 export default async (req, res) => {
-  // console.log(req.body);
+  // console.log(req.body.text);
   res.statusCode = 200;
   const r = Math.floor(Math.random() * 16);
   const msg = [
