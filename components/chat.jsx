@@ -31,16 +31,17 @@ const Chat = () => {
   }, [messages.length]);
 
   const handleInput = (e) => {
+    console.log(process.env.NEXT_PUBLIC_SERVER);
     e.preventDefault();
     if (currentInput) {
       setMessages([...messages, { text: currentInput, type: 0, id: uuidv4() }]);
 
       axios
-        .post("https://cors-anywhere.herokuapp.com/" + "https://b40cc9161e46.ngrok.io", {
+        .post("https://cors-anywhere.herokuapp.com/" + process.env.NEXT_PUBLIC_SERVER, {
           text: currentInput,
         })
         .then(function (response) {
-          console.log(response);
+          //console.log(response);
           setReceived([...received, response.data.text]);
         })
         .catch(function (error) {
