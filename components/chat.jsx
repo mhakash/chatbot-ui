@@ -36,7 +36,7 @@ const Chat = () => {
       setMessages([...messages, { text: currentInput, type: 0, id: uuidv4() }]);
 
       axios
-        .post("/api/hello", {
+        .post("http://e2400b83f185.ngrok.io/", {
           text: currentInput,
         })
         .then(function (response) {
