@@ -3,6 +3,7 @@ import Styles from "./styles.module.css";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
+import Linkify from "react-linkify";
 
 const Chat = () => {
   const boxRef = useRef();
@@ -71,7 +72,7 @@ const Chat = () => {
             {messages.map((msg) => {
               return (
                 <div className={msg.type === 0 ? Styles.sentMessage : Styles.receivedMessage} key={msg.id}>
-                  {msg.text}
+                  <Linkify>{msg.text}</Linkify>
                 </div>
               );
             })}
