@@ -36,10 +36,11 @@ const Chat = () => {
       setMessages([...messages, { text: currentInput, type: 0, id: uuidv4() }]);
 
       axios
-        .post("http://e2400b83f185.ngrok.io/", {
+        .post("https://cors-anywhere.herokuapp.com/" + "https://b40cc9161e46.ngrok.io", {
           text: currentInput,
         })
         .then(function (response) {
+          console.log(response);
           setReceived([...received, response.data.text]);
         })
         .catch(function (error) {
