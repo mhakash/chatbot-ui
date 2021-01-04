@@ -32,13 +32,12 @@ const Chat = () => {
   }, [messages.length]);
 
   const handleInput = (e) => {
-    console.log(process.env.NEXT_PUBLIC_SERVER);
     e.preventDefault();
     if (currentInput) {
       setMessages([...messages, { text: currentInput, type: 0, id: uuidv4() }]);
 
       axios
-        .post("https://cors-anywhere.herokuapp.com/" + process.env.NEXT_PUBLIC_SERVER, {
+        .post(process.env.NEXT_PUBLIC_SERVER, {
           text: currentInput,
         })
         .then(function (response) {
