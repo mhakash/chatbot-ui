@@ -37,7 +37,7 @@ const Chat = () => {
       setMessages([...messages, { text: currentInput, type: 0, id: uuidv4() }]);
 
       axios
-        .post(process.env.NEXT_PUBLIC_SERVER, {
+        .post("https://cors-anywhere.herokuapp.com/" + "http://35.232.173.0", {
           text: currentInput,
         })
         .then(function (response) {
